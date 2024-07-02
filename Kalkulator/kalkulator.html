@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalkulator</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+            margin: 0;
+        }
+        .calculator {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 320px;
+        }
+        .calculator h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #333;
+            text-align: center;
+        }
+        .display {
+            background: #f0f0f0;
+            padding: 10px;
+            border-radius: 10px;
+            text-align: right;
+            font-size: 36px;
+            margin-bottom: 20px;
+            box-shadow: inset 0px 0px 5px rgba(0, 0, 0, 0.1);
+        }
+        .buttons {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+        }
+        .buttons button {
+            background: rgba(255, 147, 165, 0.806);
+            border: none;
+            border-radius: 10px;
+            padding: 20px;
+            font-size: 18px;
+            color: white;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        .buttons button:hover {
+            background: rgba(255, 147, 165, 0.806);
+        }
+        .buttons button:active {
+            background: pink;
+        }
+        .buttons .equals {
+            grid-column: span 2;
+        }
+        .buttons .zero {
+            grid-column: span 2;
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const display = document.querySelector('.display');
+            const buttons = document.querySelectorAll('.buttons button');
+            let currentInput = '';
+            let operator = '';
+            let firstValue = '';
+
+            buttons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const value = button.getAttribute('data-value');
+
+                    if (!isNaN(value) || value === '.') {
+                        currentInput += value;
+                        display.innerText = currentInput;
+                    } else if (value === 'C') {
+                        currentInput = '';
+                        operator = '';
+                        firstValue = '';
+                        display.innerText = '0';
+                    } else if (value === '=') {
+                        if (firstValue && operator && currentInput) {
+                            const result = calculate(firstValue, operator, currentInput);
+                            display.innerText = result;
+                            firstValue = result;
+                            currentInput = '';
+                            operator = '';
+                        }
+                    } else {
+                        if (currentInput) {
+                            if (firstValue && operator) {
+                                firstValue = calculate(firstValue, operator, currentInput);
+                            } else {
+                                firstValue = currentInput;
+                            }
+                            operator = value;
+                            currentInput = '';
+                        }
+                    }
+                });
+            });
+
+            function calculate(a, op, b) {
+                const numA = parseFloat(a);
+                const numB = parseFloat(b);
+
+                switch (op) {
+                    case '+':
+                        return numA + numB;
+                    case '-':
+                        return numA - numB;
+                    case '*':
+                        return numA * numB;
+                    case '/':
+                        return numA / numB;
+                    default:
+                        return 0;
+                }
+            }
+        });
+    </script>
+</head>
+<body>
+    <div class="calculator">
+        <h1>Kalkulator</h1>
+        <div class="display">0</div>
+        <div class="buttons">
+            <button data-value="7">7</button>
+            <button data-value="8">8</button>
+            <button data-value="9">9</button>
+            <button data-value="/">÷</button>
+            <button data-value="4">4</button>
+            <button data-value="5">5</button>
+            <button data-value="6">6</button>
+            <button data-value="*">×</button>
+            <button data-value="1">1</button>
+            <button data-value="2">2</button>
+            <button data-value="3">3</button>
+            <button data-value="-">-</button>
+            <button class="zero" data-value="0">0</button>
+            <button data-value=".">.</button>
+            <button data-value="+">+</button>
+            <button class="equals" data-value="=">=</button>
+            <button data-value="C">C</button>
+        </div>
+    </div>
+</body>
+</html>

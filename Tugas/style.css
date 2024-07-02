@@ -1,0 +1,146 @@
+/* Font & Text */
+body, input, select, textarea {
+    font-family: "Montserrat", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.5;
+    color: rgb(33, 37, 41);
+}
+
+.tableatas, .tablebawah {
+    width: 100%;
+}
+.tabletengah{
+    width: 100%;
+}
+
+/* Container Form */
+form {
+    width: 100%;
+    max-width: 100%; /* Sesuaikan lebar form sesuai kebutuhan */
+    margin: 0 auto;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* Bagian Atas Form */
+.toppackage {
+    background-color: rgb(25, 66, 104);
+    color: rgb(255, 255, 255);
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 6px;
+}
+
+/* Tombol Kembali */
+.btn {
+    background-color: rgb(255, 193, 7);
+    color: rgb(255, 255, 255);
+    padding: 10px 20px;
+    border: 1px solid rgb(255, 193, 7);
+    border-radius: 6px;
+    text-decoration: none;
+}
+
+.btn:hover {
+    background-color: rgb(255, 217, 56);
+}
+
+/* Judul Form */
+.fonttop {
+    font-size: 36px;
+    font-weight: 500;
+    margin: 16px 0;
+}
+
+/* Select Gelombang */
+.btnsel {
+    background-color: rgb(13, 202, 240);
+    color: rgb(255, 255, 255);
+    padding: 8px 12px;
+    border: none;
+    border-radius: 6px;
+    margin-bottom: 16px;
+}
+
+/* Pesan Penting */
+.P, .info {
+    margin-bottom: 16px;
+}
+
+/* Data Diri */
+.datadiri {
+    background-color: rgb(207, 244, 252);
+    color: rgb(8, 121, 144);
+    border: 1px solid rgb(158, 234, 249);
+    padding: 16px;
+    margin-bottom: 24px;
+}
+
+/* Input Data Diri */
+input[type="text"],
+input[type="number"],
+input[type="date"],
+input[type="email"],
+textarea,
+select {
+    padding: 10px;
+    margin-bottom: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[name="kodepos"], input[name="npwp"],input[name="dusun"]{
+    width: 85%;
+}
+
+input[name="jalan"],input[name="kel/desa"],input[name="kecamatan"],input[name="telp/hp"],input[name="email"]{
+    width: 100%;
+}
+
+/* Radio dan Checkbox */
+input[type="radio"],
+input[type="checkbox"] {
+    margin-right: 8px;
+}
+
+/* Tombol Simpan */
+input[type="submit"] {
+    background-color: #0D6EFD;
+    color: white;
+    font-weight: bold;
+    padding: 14px 24px;
+    border: solid 1px #0D6EFD;
+    border-radius: 4px;
+}    
+
+input[type="submit"]:hover {
+    background-color: #0D6EFD;
+    border: 1px solid blue;
+    cursor: pointer;
+}
+
+input[class="btn ortu"],input[class="btn wali"]{
+    background-color: blue;
+}
+
+/* Data Orang Tua */
+.dataortu, .datawali {
+    background-color: rgb(207, 244, 252);
+    color: rgb(8, 121, 144);
+    border: 1px solid rgb(158, 234, 249);
+    padding: 16px;
+    margin-bottom: 24px;
+    width: 100%;
+}
+
+/* Input Data Orang Tua dan Data Wali */
+.dataortu {
+    
+}
+
+/* Label Data Orang Tua dan Data Wali */
+.dataortu {
+    
+}
